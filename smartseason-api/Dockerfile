@@ -5,17 +5,10 @@ RUN apt-get update && apt-get install -y \
     curl \
     libpq-dev \
     libzip-dev \
-    libxml2-dev \
     libonig-dev \
     && rm -rf /var/lib/apt/lists/*
 
-RUN docker-php-ext-install \
-    pdo \
-    pdo_pgsql \
-    mbstring \
-    xml \
-    zip \
-    tokenizer
+RUN docker-php-ext-install pdo pdo_pgsql mbstring zip
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
