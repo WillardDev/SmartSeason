@@ -152,7 +152,7 @@ export default function CreateFieldPage() {
               <button
                 type="button"
                 onClick={() => navigate('/fields')}
-                className="px-5 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-500 hover:bg-gray-50 transition-colors"
+                className="px-5 py-2.5 rounded-xl border border-gray-300 text-sm text-gray-500 hover:bg-gray-50 transition-colors"
               >
                 Cancel
               </button>

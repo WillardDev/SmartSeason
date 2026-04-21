@@ -160,7 +160,7 @@ export default function FieldDetailPage() {
                   <select
                     value={stage}
                     onChange={e => setStage(e.target.value)}
-                    className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-300 bg-white"
+                    className="w-full border border-gray-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-300 bg-white"
                   >
                     <option value="">Select stage...</option>
                     {STAGES.map(s => (
@@ -178,7 +178,7 @@ export default function FieldDetailPage() {
                     onChange={e => setNotes(e.target.value)}
                     rows={4}
                     placeholder="Describe what you observed in the field..."
-                    className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-300 resize-none"
+                    className="w-full border border-gray-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-300 resize-none"
                   />
                 </div>
 

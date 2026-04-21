@@ -70,7 +70,7 @@ export default function Layout({ children }) {
             <button
               onClick={handleLogout}
               className="text-xs font-semibold uppercase tracking-widest text-gray-400
-                hover:text-red-500 transition-colors border border-gray-200 px-3 py-1.5 rounded-full"
+                hover:text-red-500 transition-colors border border-gray-300 px-3 py-1.5 rounded-full"
             >
               Logout
             </button>
