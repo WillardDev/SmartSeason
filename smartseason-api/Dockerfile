@@ -23,4 +23,4 @@ RUN php artisan config:clear 2>/dev/null || true
 
 EXPOSE 8000
 
-CMD php -S 0.0.0.0:${PORT:-8000} -t public
+CMD ["/bin/sh", "-c", "php -S 0.0.0.0:${PORT:-8000} -t public"]
