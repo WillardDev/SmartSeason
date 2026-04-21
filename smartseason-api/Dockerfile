@@ -1,9 +1,21 @@
-FROM php:8.4-cli
+FROM php:8.4-fpm-bullseye
 
 RUN apt-get update && apt-get install -y \
-    unzip curl libpq-dev libzip-dev libxml2-dev libonig-dev \
-    && docker-php-ext-install pdo pdo_pgsql mbstring xml zip tokenizer \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+    unzip \
+    curl \
+    libpq-dev \
+    libzip-dev \
+    libxml2-dev \
+    libonig-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN docker-php-ext-install \
+    pdo \
+    pdo_pgsql \
+    mbstring \
+    xml \
+    zip \
+    tokenizer
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
@@ -18,4 +30,4 @@ RUN php artisan config:clear 2>/dev/null || true
 
 EXPOSE 8000
 
-CMD php artisan serve --host=0.0.0.0 --port=$PORT
+CMD php -S 0.0.0.0:${PORT:-8000} -t public
