@@ -1,8 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Tailwind v4 syntax */
+@import "tailwindcss";
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap');
+
 
 :root {
   --green-950: #052e16;
@@ -41,6 +41,8 @@ body {
 }
 
 @layer components {
+  @reference "tailwindcss";
+
   .input {
     @apply w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-400 bg-white;
   }
