@@ -3,12 +3,12 @@ import { useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 
 export default function LoginPage() {
-  const [email, setEmail]       = useState('')
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [error, setError]       = useState('')
-  const [loading, setLoading]   = useState(false)
-  const { login }  = useAuth()
-  const navigate   = useNavigate()
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
+  const { login } = useAuth()
+  const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -17,8 +17,10 @@ export default function LoginPage() {
     try {
       await login(email, password)
       navigate('/dashboard')
-    } catch {
-      setError('Invalid email or password.')
+    } catch (err) {
+      // Show backend error message if available, otherwise generic message
+      const errorMessage = err.response?.data?.message || 'Invalid email or password.'
+      setError(errorMessage)
     } finally {
       setLoading(false)
     }
@@ -43,7 +45,7 @@ export default function LoginPage() {
           </p>
           <h1 className="display text-7xl leading-none mb-6"
             style={{ color: '#fff', lineHeight: '0.9' }}>
-            Smart<br/>Season
+            Smart<br />Season
           </h1>
           <p className="text-base font-light max-w-sm" style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.7 }}>
             Track every field, every stage, every season — from planting to harvest.

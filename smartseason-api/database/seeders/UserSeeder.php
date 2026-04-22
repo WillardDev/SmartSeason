@@ -12,14 +12,14 @@ class UserSeeder extends Seeder
         User::create([
             'name'     => 'Admin User',
             'email'    => 'admin@smartseason.test',
-            'password' => 'smarts3@son', // Plain password for testing
+            'password' => Hash::make('smarts3@son'),
             'role'     => 'admin',
         ]);
 
         User::create([
             'name'     => 'Field Agent',
             'email'    => 'agent@smartseason.test',
-            'password' => 'smarts3@son', // Plain password for testing
+            'password' => Hash::make('smarts3@son'),
             'role'     => 'agent',
         ]);
 
